@@ -19,7 +19,7 @@ app.get('/admin', (req, res) => {
 
 const METADATA_FILE = path.join(__dirname, 'qr_metadata.json');
 
-const BASE_URL = 'https://qr-generation-6ujn.onrender.com' || `http://localhost:${PORT}`;
+const BASE_URL = 'https://qr-generation-6ujn.onrender.com';
 
 
 // Create uploads and qrcodes folders if they don't exist
