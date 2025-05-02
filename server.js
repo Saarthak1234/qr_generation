@@ -184,7 +184,7 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 
     if (req.file) {
       // Image option selected
-      const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+      const imageUrl = `${BASE_URL}/uploads/${req.file.filename}`;
       // Store the image URL in QR, but use our redirect URL for scanning
       qrData = fullRedirectUrl;
       
