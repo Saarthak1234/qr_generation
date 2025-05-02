@@ -13,6 +13,10 @@ app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
 app.use('/qrcodes', express.static('qrcodes'));
 
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 const METADATA_FILE = path.join(__dirname, 'qr_metadata.json');
 
 // Create uploads and qrcodes folders if they don't exist
