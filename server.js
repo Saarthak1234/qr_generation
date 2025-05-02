@@ -19,6 +19,9 @@ app.get('/admin', (req, res) => {
 
 const METADATA_FILE = path.join(__dirname, 'qr_metadata.json');
 
+const BASE_URL = 'https://qr-generation-6ujn.onrender.com' || `http://localhost:${PORT}`;
+
+
 // Create uploads and qrcodes folders if they don't exist
 const directories = ['uploads', 'qrcodes'];
 directories.forEach(dir => {
@@ -173,8 +176,9 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     
     // Create a redirect URL that will track scans
     const redirectUrl = `/scan/${id}`;
-    const fullRedirectUrl = `${req.protocol}://${req.get('host')}${redirectUrl}`;
-    const qrUrl = `${req.protocol}://${req.get('host')}/qrcodes/${qrFilename}`;
+    const fullRedirectUrl = `${BASE_URL}${redirectUrl}`;
+    // const qrUrl = `${req.protocol}://${req.get('host')}/qrcodes/${qrFilename}`;
+    const qrUrl = `${BASE_URL}/qrcodes/${qrFilename}`;
     
     let uploadData;
 
